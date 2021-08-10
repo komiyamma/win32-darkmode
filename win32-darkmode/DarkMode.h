@@ -193,7 +193,7 @@ void InitDarkMode()
 		DWORD major, minor;
 		RtlGetNtVersionNumbers(&major, &minor, &g_buildNumber);
 		g_buildNumber &= ~0xF0000000;
-		if (major == 10 && minor == 0 && CheckBuildNumber(g_buildNumber))
+		if (major >= 10 && CheckBuildNumber(g_buildNumber))
 		{
 			HMODULE hUxtheme = LoadLibraryExW(L"uxtheme.dll", nullptr, LOAD_LIBRARY_SEARCH_SYSTEM32);
 			if (hUxtheme)
